@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp } from "lucide-react";
-import heroImage from "@/assets/hero-ewaste.jpg";
+import heroImage from "@/assets/batteries.jpg";
 
 export const Hero = () => {
   const scrollToWaitlist = () => {
@@ -13,7 +13,7 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="E-waste transformation to sustainable future" 
+          alt="Battery testing and e-waste management" 
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
