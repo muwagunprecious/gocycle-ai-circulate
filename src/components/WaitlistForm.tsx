@@ -57,12 +57,13 @@ export const WaitlistForm = () => {
     }
 
     try {
-      // For now, we'll just show success message
-      // In production, you would integrate with an email service or backend
-      console.log("Form data:", formData);
+      const { supabase } = await import("@/integrations/supabase/client");
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const { error } = await supabase.functions.invoke('send-waitlist-email', {
+        body: formData
+      });
+
+      if (error) throw error;
 
       toast({
         title: "Success! 🎉",
@@ -79,6 +80,7 @@ export const WaitlistForm = () => {
         comments: ""
       });
     } catch (error) {
+      console.error("Submission error:", error);
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
